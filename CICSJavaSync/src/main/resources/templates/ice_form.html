@@ -1,0 +1,236 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<link rel="shortcut icon" href="img/icons/route66.png" />
+
+	<title>ICE Form | CICS Java Sync</title>
+	<link href="css/app.css" rel="stylesheet">
+	<link href="css/fonts.css" rel="stylesheet">
+	<link class="js-stylesheet" href="css/light.css" rel="stylesheet">
+  </head>
+<body>
+
+	<div class="wrapper">
+
+<div th:replace="fragments/sidebar :: sidebar(title='index')" />
+
+<div class="main">
+	<div th:replace="fragments/header :: header" />
+
+<main class="content">
+<div class="container-fluid p-0">
+	<h1 class="h3 mb-3">Manutenção de transação no ICE</h1>
+
+<div class="row g-5">
+  <form class="needs-validation" novalidate>
+    <div class="row g-3">
+
+      <div class="col-md-3">
+        <label for="tran" class="form-label">Transação</label>
+        <div class="input-group has-validation">
+          <input type="text" class="form-control" id="tran" minlength="4" maxlength="4" style="text-transform: uppercase;" placeholder="DTTT" required>
+        <div class="invalid-feedback">
+            Transação Obrigatoria (4 caracteres).
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-3">
+        <label for="username" class="form-label">Usuario Exec</label>
+        <div class="input-group has-validation">
+          <input type="text" class="form-control" id="username" maxlength="8" style="text-transform: uppercase;" placeholder="CISIMRA" required>
+        <div class="invalid-feedback">
+            Your username is required.
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-3">
+        <label for="hora_inicio" class="form-label">Hora Inicio</label>
+        <div class="input-group">
+          <span class="input-group-text"><i class="align-middle" data-feather="clock"></i></span>
+          <input type="text" class="form-control" id="hora_inicio" minlength="5" maxlength="5" placeholder="00:00">
+        </div>
+      </div>
+
+      <div class="col-md-3">
+        <label for="hora_fim" class="form-label">Hora Fim</label>
+        <div class="input-group">
+          <span class="input-group-text"><i class="align-middle" data-feather="clock"></i> </span>
+          <input type="text" class="form-control" id="hora_fim" minlength="5" maxlength="5" placeholder="23:59">
+        </div>
+      </div>
+
+      <div class="col-md-12">
+        <label for="descricao" class="form-label">Descrição <span class="text-muted">(Optional)</span></label>
+        <input type="text" class="form-control" id="descricao" maxlength="40" style="text-transform: uppercase;" placeholder="Transação de teste">
+      </div>
+
+      <div class="col-md-4">
+        <label for="freq" class="form-label">Executar a cada</label>
+        <input type="text" class="form-control" id="freq" maxlength="10" placeholder="5" required>
+        <div class="invalid-feedback">
+          Preencher a Frequencia de execução.
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        &nbsp;
+        <div class="form-check">
+          <input id="seconds" name="paymentMethod" type="radio" class="form-check-input" checked required>
+          <label class="form-check-label" for="credit">Segundos</label>
+        </div>
+        <div class="form-check">
+          <input id="minutes" name="paymentMethod" type="radio" class="form-check-input" required>
+          <label class="form-check-label" for="debit">Minutos</label>
+        </div>
+      </div>
+
+    <div class="col-md-4">
+      &nbsp;
+      <div class="form-check form-switch">
+        <label class="form-check-label" for="allday">Executar o dia todo</label>
+        <input type="checkbox" class="form-check-input" id="allday">
+      </div>
+      <div class="form-check form-switch">
+        <input type="checkbox" class="form-check-input" id="retry">
+        <label class="form-check-label" for="retry">Retry apos Abend</label>
+      </div>
+    </div>
+
+    <h4 class="mb-3">Dias de Execução</h4>
+
+    <div class="col-md-12">
+      <div class="form-check form-switch">
+        <label class="form-check-label" for="everyday">Todos os dias</label>
+        <input type="checkbox" class="form-check-input" onclick="checkDay()" id="everyday">
+      </div>
+    </div>
+    <div class="col-md-12">
+      <div class="form-check form-switch form-check-inline">
+        <input type="checkbox" class="form-check-input" id="domingo">
+        <label class="form-check-label" for="domingo">Domingo</label>
+      </div>
+      <div class="form-check form-switch form-check-inline">
+        <input type="checkbox" class="form-check-input" id="segunda">
+        <label class="form-check-label" for="segunda">Segunda</label>
+      </div>
+      <div class="form-check form-switch form-check-inline">
+        <input type="checkbox" class="form-check-input" id="terca">
+        <label class="form-check-label" for="terca">Terça</label>
+      </div>
+      <div class="form-check form-switch form-check-inline">
+        <input type="checkbox" class="form-check-input" id="quarta">
+        <label class="form-check-label" for="quarta">Quarta</label>
+      </div>
+      <div class="form-check form-switch form-check-inline">
+        <input type="checkbox" class="form-check-input" id="quinta">
+        <label class="form-check-label" for="quinta">Quinta</label>
+      </div>
+      <div class="form-check form-switch form-check-inline">
+        <input type="checkbox" class="form-check-input" id="sexta">
+        <label class="form-check-label" for="sexta">Sexta</label>
+      </div>
+      <div class="form-check form-switch form-check-inline">
+        <input type="checkbox" class="form-check-input" id="sabado">
+        <label class="form-check-label" for="sabado">Sabado</label>
+      </div>
+    </div>
+
+    <div class="col-12">
+      <label for="entry_data" class="form-label">Dados de entrada <span class="text-muted">(Optional)</span></label>
+      <textarea class="form-control" id="entry_data" style="text-transform: uppercase;" maxlength="200" placeholder="teste"></textarea>
+    </div>
+
+  </div>
+
+  <hr class="my-4">
+  <dl class="row">
+    <dt class="col-sm-4">Ultima Alteração por</dt>
+    <dd class="col-sm-8">
+      $802996
+      as 05/10/2022 12:30:00
+    </dd>
+  </dl>
+
+  <hr class="my-4">
+
+  <div class="row g-3">
+
+    <div class="col-md-4">
+        <button class="w-100 btn btn-danger btn-lg" type="submit">Deletar</button>
+    </div>
+    <div class="col-md-4">
+    <div class="d-grip gap-2 mx-auto">
+    </div>
+    </div>
+    <div class="col-md-4">
+        <button class="w-100 btn btn-primary btn-lg" type="submit">Alterar</button>
+    </div>
+
+    <div class="col-md-12">
+      <p></p>
+    </div>
+  </div>
+
+  </form>
+</div>
+
+</div>
+</main>
+<div th:replace="fragments/footer :: footer" />
+</div>
+</div>
+
+<script src="js/app.js"></script>
+
+<script>
+  function checkDay(){
+    let checkboxMain = document.getElementById("everyday");
+
+    let checkbox1 = document.getElementById("domingo");
+    let checkbox2 = document.getElementById("segunda");
+    let checkbox3 = document.getElementById("terca");
+    let checkbox4 = document.getElementById("quarta");
+    let checkbox5 = document.getElementById("quinta");
+    let checkbox6 = document.getElementById("sexta");
+    let checkbox7 = document.getElementById("sabado");
+
+    checkbox1.checked = checkboxMain.checked;
+    checkbox2.checked = checkboxMain.checked;
+    checkbox3.checked = checkboxMain.checked;
+    checkbox4.checked = checkboxMain.checked;
+    checkbox5.checked = checkboxMain.checked;
+    checkbox6.checked = checkboxMain.checked;
+    checkbox7.checked = checkboxMain.checked;
+
+  }
+</script>
+
+<script>
+// Example starter JavaScript for disabling form submissions if there are invalid fields
+(() => {
+  'use strict'
+
+  // Fetch all the forms we want to apply custom Bootstrap validation styles to
+  const forms = document.querySelectorAll('.needs-validation')
+
+  // Loop over them and prevent submission
+  Array.from(forms).forEach(form => {
+    form.addEventListener('submit', event => {
+      if (!form.checkValidity()) {
+        event.preventDefault()
+        event.stopPropagation()
+      }
+
+      form.classList.add('was-validated')
+    }, false)
+  })
+})()
+</script>
+
+</body>
+</html>

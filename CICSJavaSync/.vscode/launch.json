@@ -1,0 +1,28 @@
+{
+	"configurations": [
+		{
+			"type": "java",
+			"name": "DashboardApplication",
+			"request": "launch",
+			"mainClass": "ci1.cics.dashboard.DashboardApplication",
+			"projectName": "dashboard"
+		},
+		{
+			"type": "java",
+			"name": "DashboardApplication",
+			"request": "launch",
+			"mainClass": "ci1.cics.dashboard.DashboardApplication",
+			"projectName": "calendar"
+		},
+		{
+			"type": "java",
+			"name": "Spring Boot-CalendarApplication<calendar>",
+			"request": "launch",
+			"cwd": "${workspaceFolder}",
+			"mainClass": "ci1.cics.calendar.CalendarApplication",
+			"projectName": "calendar",
+			"args": "",
+			"envFile": "${workspaceFolder}/.env"
+		}
+	]
+}

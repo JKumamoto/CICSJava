@@ -1,0 +1,74 @@
+<th:block th:fragment="sidebar">
+
+<nav id="sidebar" class="sidebar js-sidebar">
+	<div class="sidebar-content js-simplebar">
+		<a class="sidebar-brand" href="index">
+			<span class="sidebar-brand-text align-middle">
+				<img src="img/icons/route66.png" style="max-height: 50px; max-width: 50px;" />
+				CICS Java Sync
+			</span>
+		</a>
+
+		<ul class="sidebar-nav">
+			<li class="sidebar-header">
+				Pages
+			</li>
+
+			<li class="sidebar-item" th:classappend="(${pagina} == 'index')? 'active' ">
+				<a class="sidebar-link" href="/">
+					<i class="align-middle" data-feather="sliders"></i> <span class="align-middle">Dashboard</span>
+				</a>
+			</li>
+
+			<li class="sidebar-item">
+				<a class="sidebar-link" href="login">
+		  			<i class="align-middle" data-feather="log-in"></i> <span class="align-middle">Sign In</span>
+				</a>
+			</li>
+
+			<li class="sidebar-item" th:classappend="(${pagina} == 'Calendar')? 'active' ">
+				<a class="sidebar-link" href="calendar">
+		  			<i class="align-middle" data-feather="calendar"></i> <span class="align-middle">Calendar</span>
+				</a>
+			</li>
+
+			<li class="sidebar-header">
+				Apps
+			</li>
+
+			<li class="sidebar-item" th:classappend="(${pagina} == 'bundle')? 'active' ">
+				<a class="sidebar-link" href="bundle">
+		  			<i class="align-middle" data-feather="file"></i> <span class="align-middle">Bundle Deployment API</span>
+				</a>
+			</li>
+
+			<li class="sidebar-item">
+				<a data-bs-target="#ice" data-bs-toggle="collapse" class="sidebar-link collapsed">
+					<i class="align-middle" data-feather="corner-right-down"></i> <span class="align-middle">ICEaaS</span>
+				</a>
+				<ul id="ice" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
+					<li class="sidebar-item" th:classappend="(${pagina} == 'ice_dash')? 'active' ">
+						<a class="sidebar-link" href="ice_dash">ICE Dashboard</a>
+					</li>
+					<li class="sidebar-item">
+						<a class="sidebar-link" href="ice_form">Item 2</a>
+					</li>
+				</ul>
+			</li>
+
+			<li class="sidebar-header">
+				Plugins & Addons
+			</li>
+
+			<li class="sidebar-item">
+				<a class="sidebar-link" href="charts-chartjs">
+		  			<i class="align-middle" data-feather="bar-chart-2"></i> <span class="align-middle">Charts</span>
+				</a>
+			</li>
+
+		</ul>
+
+	</div>
+</nav>
+
+</th:block>

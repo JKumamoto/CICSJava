@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<link rel="shortcut icon" href="img/icons/route66.png" />
+
+
+	<title>Calendar | CICS Java Sync</title>
+	<link href="css/app.css" rel="stylesheet">
+	<link href="css/fonts.css" rel="stylesheet">
+	<link class="js-stylesheet" href="css/light.css" rel="stylesheet">
+
+</head>
+<!--
+  HOW TO USE: 
+  data-theme: default (default), dark, light, colored
+  data-layout: fluid (default), boxed
+  data-sidebar-position: left (default), right
+  data-sidebar-layout: default (default), compact
+-->
+
+<body data-theme="default" data-layout="fluid" data-sidebar-position="left" data-sidebar-layout="default">
+	<div class="wrapper">
+
+		<div th:replace="fragments/sidebar :: sidebar" />
+
+		<div class="main">
+			<div th:replace="fragments/header :: header" />
+
+			<main class="content">
+				<div class="container-fluid p-0">
+
+					<div class="mb-3">
+						<h1 class="h3 d-inline align-middle">Calendar</h1>
+					</div>
+
+					<div class="card">
+						<div class="card-body">
+							<div id="fullcalendar"></div>
+						</div>
+					</div>
+
+				</div>
+			</main>
+
+			<!-- Add or Edit Event Modal -->
+			<div class="modal fade" id="add-edit-event-modal" tabindex="-1" aria-labelledby="eventModalLabel" aria-hidden="true">
+				<div class="modal-dialog modal-dialog-centered">
+					<div class="modal-content">
+						<div class="modal-header">
+							<h5 class="modal-title" id="add-edit-event-modal-title">Add Event</h5>
+							<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+						</div>
+						<div class="modal-body">
+							<form name="add-event-form" id="add-event-form">
+								<div class="mb-3">
+									<label class="form-label">Event Title</label>
+									<input type="text" placeholder="Event Title" name="event-title" id="event-title" required class="form-control" value="Testing title" />
+								</div>
+								<div class="mb-4">
+									<label class="form-label">Select Category</label>
+									<select class="form-select" name="event-category" id="event-category">
+										<option selected value="bg-primary">Primary</option>
+										<option value="bg-danger">Danger</option>
+										<option value="bg-success">Success</option>
+										<option value="bg-info">Info</option>
+										<option value="bg-dark">Dark</option>
+										<option value="bg-warning">Warning</option>
+									</select>
+								</div>
+								<div class="mb-3">
+									<label class="form-label">Event Start At</label>
+									<div class="input-group">
+										<input class="form-control" id="eventStart" placeholder="Select Dates" data-enabletime="true" />
+										<span class="input-group-text"><i class="bi" data-feather="calendar"></i></span>
+									</div>
+								</div>
+								<div class="mb-3">
+									<label class="form-label">Event End At</label>
+									<div class="input-group">
+										<input class="form-control" id="eventEnd" placeholder="Select Dates" data-enabletime="true" />
+										<span class="input-group-text"><i class="bi" data-feather="calendar"></i></span>
+									</div>
+								</div>
+
+								<div class="mb-3">
+									<label class="form-label">Description</label>
+									<textarea class="form-control" id="event-description" placeholder="Enter event description" rows="3" spellcheck="false">testing....description</textarea>
+								</div>
+
+								<div class="">
+									<button type="submit" class="btn btn-primary" id="add-new-event-btn">Add Event</button>
+									<button type="submit" class="btn btn-primary" id="update-event-btn">Update Event</button>
+									<button type="button" class="btn btn-danger" id="btn-delete-event">Deletar</button>
+									<input type="hidden" id="event-id" name="eventid" value="" />
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div th:replace="fragments/footer :: footer" />
+		</div>
+	</div>
+
+	<script src="js/app.js"></script>
+
+	<script src="js/index.global.min.js"></script>
+	<script src="js/moment.min.js"></script>
+	<script src="js/flatpickr.min.js"></script>
+
+	<script src="js/calendar.js"></script>
+</body>
+
+</html>

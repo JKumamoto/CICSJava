@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<link rel="shortcut icon" href="img/icons/route66.png" />
+
+	<title>Sign In | CICS Java Sync</title>
+
+	<link href="css/app.css" rel="stylesheet">
+	<link href="css/fonts.css" rel="stylesheet">
+	<link class="js-stylesheet" href="css/light.css" rel="stylesheet">
+</head>
+
+<body>
+	<main class="d-flex w-100">
+		<div class="container d-flex flex-column">
+			<div class="row vh-100">
+				<div class="col-sm-10 col-md-8 col-lg-6 col-xl-5 mx-auto d-table h-100">
+					<div class="d-table-cell align-middle">
+
+						<div class="text-center mt-4">
+							<h1 class="h2">Bem vindo!!</h1>
+							<p class="lead">
+								Faça o logon para continuar
+							</p>
+						</div>
+
+						<div class="card">
+							<div class="card-body">
+								<div class="m-sm-3">
+									<form>
+										<div class="mb-3">
+											<label class="form-label">RACF</label>
+											<input class="form-control form-control-lg" id="username" type="text" name="username" placeholder="$999999" />
+										</div>
+										<div class="mb-3">
+											<label class="form-label">Senha</label>
+											<input class="form-control form-control-lg" id="password" type="password" name="password" placeholder="*******" />
+										</div>
+										
+										<div class="control-group" align="center" th:if="${error}">
+											<p style="font-size: 20; color: #FF1C19;" th:text="${error}" >Erro</p>
+										</div>
+										<div class="d-grid gap-2 mt-3">
+											<button class="btn btn-lg btn-primary">Sign in</button>
+										</div>
+									</form>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</main>
+
+	<script src="js/app.js"></script>
+
+</body>
+
+</html>

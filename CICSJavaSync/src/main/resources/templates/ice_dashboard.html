@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<link rel="shortcut icon" href="img/icons/route66.png" />
+
+
+	<title>Column Search | AdminKit Demo</title>
+
+	<link href="css/app.css" rel="stylesheet">
+	<link href="css/fonts.css" rel="stylesheet">
+	<link class="js-stylesheet" href="css/light.css" rel="stylesheet">
+
+</head>
+
+<body>
+	<div class="wrapper">
+
+		<div th:replace="fragments/sidebar :: sidebar" />
+		<div class="main">
+
+			<div th:replace="fragments/header :: header" />
+
+			<main class="content">
+				<div class="container-fluid p-0">
+
+					<div class="row">
+						<div class="col-12">
+							<div class="card">
+								<div class="card-header">
+									<h5 class="card-title">DataTables with Column Search by Text Inputs</h5>
+									<h6 class="card-subtitle text-muted">The searching functionality provided by DataTables is useful for quickly search through
+										the information in the table. See official documentation <a href="https://datatables.net/examples/api/multi_filter.html"
+											target="_blank" rel="noopener noreferrer nofollow">here</a>.</h6>
+								</div>
+								<div class="card-body">
+									<table id="datatables-column-search-text-inputs" class="table table-striped" style="width:100%">
+										<thead>
+											<tr>
+												<th>Name</th>
+												<th>Position</th>
+												<th>Office</th>
+												<th>Age</th>
+												<th>Start date</th>
+												<th>Salary</th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr>
+												<td>Tiger Nixon</td>
+												<td>System Architect</td>
+												<td>Edinburgh</td>
+												<td>61</td>
+												<td>2023/04/25</td>
+												<td>$320,800</td>
+											</tr>
+											<tr>
+												<td>Jena Gaines</td>
+												<td>Office Manager</td>
+												<td>London</td>
+												<td>30</td>
+												<td>2018/12/19</td>
+												<td>$90,560</td>
+											</tr>
+											<tr>
+												<td>Shou Itou</td>
+												<td>Regional Marketing</td>
+												<td>Tokyo</td>
+												<td>20</td>
+												<td>2023/08/14</td>
+												<td>$163,000</td>
+											</tr>
+											<tr>
+												<td>Michelle House</td>
+												<td>Integration Specialist</td>
+												<td>Sidney</td>
+												<td>37</td>
+												<td>2023/06/02</td>
+												<td>$95,400</td>
+											</tr>
+											<tr>
+												<td>Suki Burks</td>
+												<td>Developer</td>
+												<td>London</td>
+												<td>53</td>
+												<td>2019/10/22</td>
+												<td>$114,500</td>
+											</tr>
+											<tr>
+												<td>Prescott Bartlett</td>
+												<td>Technical Author</td>
+												<td>London</td>
+												<td>27</td>
+												<td>2023/05/07</td>
+												<td>$145,000</td>
+											</tr>
+											<tr>
+												<td>Gavin Cortez</td>
+												<td>Team Leader</td>
+												<td>San Francisco</td>
+												<td>22</td>
+												<td>2018/10/26</td>
+												<td>$235,500</td>
+											</tr>
+											<tr>
+												<td>Martena Mccray</td>
+												<td>Post-Sales support</td>
+												<td>Edinburgh</td>
+												<td>46</td>
+												<td>2023/03/09</td>
+												<td>$324,050</td>
+											</tr>
+											<tr>
+												<td>Unity Butler</td>
+												<td>Marketing Designer</td>
+												<td>San Francisco</td>
+												<td>47</td>
+												<td>2019/12/09</td>
+												<td>$85,675</td>
+											</tr>
+											<tr>
+												<td>Howard Hatfield</td>
+												<td>Office Manager</td>
+												<td>San Francisco</td>
+												<td>51</td>
+												<td>2018/12/16</td>
+												<td>$164,500</td>
+											</tr>
+											<tr>
+												<td>Hope Fuentes</td>
+												<td>Secretary</td>
+												<td>San Francisco</td>
+												<td>41</td>
+												<td>2020/02/12</td>
+												<td>$109,850</td>
+											</tr>
+											<tr>
+												<td>Vivian Harrell</td>
+												<td>Financial Controller</td>
+												<td>San Francisco</td>
+												<td>62</td>
+												<td>2019/02/14</td>
+												<td>$452,500</td>
+											</tr>
+											<tr>
+												<td>Timothy Mooney</td>
+												<td>Office Manager</td>
+												<td>London</td>
+												<td>37</td>
+												<td>2018/12/11</td>
+												<td>$136,200</td>
+											</tr>
+											<tr>
+												<td>Jackson Bradshaw</td>
+												<td>Director</td>
+												<td>New York</td>
+												<td>65</td>
+												<td>2018/09/26</td>
+												<td>$645,750</td>
+											</tr>
+											<tr>
+												<td>Olivia Liang</td>
+												<td>Support Engineer</td>
+												<td>Singapore</td>
+												<td>64</td>
+												<td>2023/02/03</td>
+												<td>$234,500</td>
+											</tr>
+											<tr>
+												<td>Bruno Nash</td>
+												<td>Software Engineer</td>
+												<td>London</td>
+												<td>38</td>
+												<td>2023/05/03</td>
+												<td>$163,500</td>
+											</tr>
+											<tr>
+												<td>Donna Snider</td>
+												<td>Customer Support</td>
+												<td>New York</td>
+												<td>27</td>
+												<td>2023/01/25</td>
+												<td>$112,000</td>
+											</tr>
+										</tbody>
+										<tfoot>
+											<tr>
+												<th>Name</th>
+												<th>Position</th>
+												<th>Office</th>
+												<th>Age</th>
+												<th>Start date</th>
+												<th>Salary</th>
+											</tr>
+										</tfoot>
+									</table>
+								</div>
+							</div>
+						</div>
+
+					</div>
+
+				</div>
+			</main>
+
+			<div th:replace="fragments/footer :: footer" />
+		</div>
+	</div>
+
+	<script src="js/app.js"></script>
+
+	<script src="js/datatables.js"></script>
+
+	<script>
+		// DataTables with Column Search by Text Inputs
+		document.addEventListener("DOMContentLoaded", function() {
+			// Setup - add a text input to each footer cell
+			$("#datatables-column-search-text-inputs tfoot th").each(function() {
+				var title = $(this).text();
+				$(this).html("<input type=\"text\" class=\"form-control\" placeholder=\"Search " + title + "\" />");
+			});
+			// DataTables
+			var table = $("#datatables-column-search-text-inputs").DataTable();
+			// Apply the search
+			table.columns().every(function() {
+				var that = this;
+				$("input", this.footer()).on("keyup change clear", function() {
+					if (that.search() !== this.value) {
+						that
+							.search(this.value)
+							.draw();
+					}
+				});
+			});
+		});
+	</script>
+</body>
+
+</html>

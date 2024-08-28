@@ -1,0 +1,30 @@
+<th:block th:fragment="header">
+<nav class="navbar navbar-expand navbar-light navbar-bg">
+<a class="sidebar-toggle js-sidebar-toggle">
+	<i class="hamburger align-self-center"></i>
+</a>
+
+<div class="navbar-collapse collapse">
+	<ul class="navbar-nav navbar-align">
+		<div th:if="${user}">
+		<li class="nav-item dropdown">
+			<a class="nav-link dropdown-toggle d-none d-sm-inline-block" href="#" data-bs-toggle="dropdown">
+				<span class="text-dark">Charles Hall</span>
+	  		</a>
+			<div class="dropdown-menu dropdown-menu-end">
+				<a class="dropdown-item" href="#">Log out</a>
+			</div>
+		</li>
+		</div>
+
+		<div th:unless="${user}">
+			<li class="nav-item">
+				<a class="nav-link d-none d-sm-inline-block" href="/login">
+					<button class="btn btn-primary">Login</button>
+				</a>
+			</li>
+		</div>
+	</ul>
+</div>
+</nav>
+</th:block>
